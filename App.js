@@ -1,12 +1,19 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, TextInput } from 'react-native';
 import MapView from 'react-native-maps';
 
 export default class App extends React.Component {
   render() {
     return (
-      <View style={styles.container}>
-        <MapView
+      <View style={{flex: 1, justifyContent: 'space-between'}}>
+      	<View style={{flex: 0.2}}>
+        <TextInput
+		  style={{flex: 1, borderColor: 'gray', borderWidth: 1}}
+		  value={"Nearby Places"}
+		/>
+		</View>
+      	<View style={{flex: 0.8}}>
+	    <MapView
           style={styles.map}
           initialRegion={{
             latitude: 37.78825,
@@ -25,6 +32,7 @@ export default class App extends React.Component {
               </View>
           </MapView.Marker>
         </MapView>
+		</View>
       </View>
     );
   }
