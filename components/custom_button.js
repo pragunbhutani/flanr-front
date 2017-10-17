@@ -20,7 +20,10 @@ export default class CustomButton extends React.Component {
 
 const styles = StyleSheet.create({
 	button: {
-		flex: 0.13,
+		borderColor: 'transparent',
+		borderWidth: 8,
+	  	borderRadius: 8,
+		height: 70,
 		backgroundColor: "#2AA198"
 	},
 	textBox: {
