@@ -2,17 +2,31 @@ import React from 'react';
 import { StyleSheet, View, Button, Alert } from 'react-native';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 import SavePlace from '../components/save_place.js';
+import NavigationBar from 'react-native-navbar';
 
 export default class mapScreen extends React.Component {
 
-    static navigationOptions = {
-		title: "Map Screen"
+  	static navigationOptions = {
+    	drawerLabel: 'Map',
+  	};
+
+  	rightButtonConfig = {
+  		title: 'Menu',
+  		handler: () => this.props.navigation.navigate('DrawerToggle'),
+	};
+
+	titleConfig = {
+  		title: 'Flanr'
 	};
 
 	render() {
 		const { navigate } = this.props.navigation;
 		return (
 	        <View style={{flex: 1}}>
+	        	<NavigationBar
+			        title={this.titleConfig}
+			        rightButton={this.rightButtonConfig}
+			    />
 	            <View style={{flex: 1}}>
 
 	                <MapView
