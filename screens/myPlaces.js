@@ -1,6 +1,7 @@
 import React from 'react';
-import { StyleSheet, View, Button, Alert } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import NavigationBar from 'react-native-navbar';
+import CustomButton from '../components/custom_button.js'
 
 export default class myPlaces extends React.Component {
 
@@ -10,9 +11,9 @@ export default class myPlaces extends React.Component {
 
     render() {
         return (
-            <Button
+            <CustomButton
                 onPress={() => this.props.navigation.goBack()}
-                title="Go Back"
+                title='Go Back'
             />
         );
     }

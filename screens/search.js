@@ -1,6 +1,7 @@
 import React from 'react';
-import { StyleSheet, View, Button } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import SearchBox from '../components/search.js';
+import CustomButton from '../components/custom_button.js'
 
 const styles = StyleSheet.create({
 	container: {
@@ -11,17 +12,17 @@ const styles = StyleSheet.create({
 
 export default class searchScreen extends React.Component {
 	static navigationOptions = {
-		drawerLabel: "Search for Places"
+		drawerLabel: 'Search for Places'
 	};
 	render() {
-		const { navigate } = this.props.navigation;
-		return (
-			<View style={styles.container}>
-  			<SearchBox/>
-  			<Button
-      		onPress={() => this.props.navigation.goBack()}
-      		title="Go Back"
-  			/>
-			</View>
+	const { navigate } = this.props.navigation;
+	return (
+		<View style={styles.container}>
+		<SearchBox/>
+		<CustomButton
+			onPress={() => this.props.navigation.goBack()}
+			title='Go Back'
+		/>
+		</View>
 	)};
 }
