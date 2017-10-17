@@ -61,10 +61,11 @@ export default class mapScreen extends React.Component {
 	render() {
 		const { navigate } = this.props.navigation;
 		return (
-			<View style={{flex: 1}}>
+			<View style={{flex: 1, elevation: 0}}>
 				<NavigationBar
 					title={this.titleConfig}
 					rightButton={this.rightButtonConfig}
+					style={styles.navbar}
 				/>
 				<View style={{flex: 1}}>
           <MapView
@@ -93,6 +94,12 @@ const styles = StyleSheet.create({
 		backgroundColor: '#fff',
 		alignItems: 'center',
 		justifyContent: 'center'
+	},
+	navbar: {
+		height: 60,
+		borderBottomWidth: 1,
+		elevation: 1,
+		borderColor: '#BBB',
 	},
 	button: {
 		position: 'absolute',
