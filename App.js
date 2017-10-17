@@ -4,6 +4,7 @@ import { DrawerNavigator } from 'react-navigation';
 import MapScreen from './screens/map.js';
 import MyPlacesScreen from './screens/myPlaces.js';
 import SearchScreen from './screens/search.js';
+import CacheStore from 'react-native-cache-store';
 
 const styles = StyleSheet.create({
 	container: {

@@ -18,7 +18,9 @@ export default class searchScreen extends React.Component {
 	const { navigate } = this.props.navigation;
 	return (
 		<View style={styles.container}>
-		<SearchBox/>
+		<View style={{flex: 1}} >
+			<SearchBox/>
+		</View>
 		<CustomButton
 			onPress={() => this.props.navigation.goBack()}
 			title='Go Back'

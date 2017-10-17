@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Button, Alert } from 'react-native';
+import { StyleSheet, View, Button, Alert, Dimensions } from 'react-native';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 import CustomButton from '../components/custom_button.js';
 import NavigationBar from 'react-native-navbar';
@@ -51,7 +51,9 @@ export default class mapScreen extends React.Component {
 	                    </MapView.Marker>
 	                </MapView>
 				</View>
-				<CustomButton title='SAVE PLACE' onPress={() => navigate('Search')} />
+				<View style={styles.button}>
+					<CustomButton title='SAVE PLACE' onPress={() => navigate('Search')} />
+				</View>
 			</View>
 		)
 	};
@@ -63,6 +65,11 @@ const styles = StyleSheet.create({
 		backgroundColor: '#fff',
 		alignItems: 'center',
 		justifyContent: 'center'
+	},
+	button: {
+		position: 'absolute',
+		bottom: 0,
+		width: Dimensions.get('window').width
 	},
 	menuButton: {
 		backgroundColor: '#fff',
