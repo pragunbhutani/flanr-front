@@ -22,7 +22,7 @@ export default class App extends React.Component {
             }}
           >
               <View style={styles.radius}>
-                <View style={styles.marker}></View>
+                <View style={styles.marker} />
               </View>
           </MapView.Marker>
         </MapView>
@@ -56,4 +56,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center'
   },
+  marker: {
+    height: 20,
+    width: 20,
+    borderWidth: 3,
+    borderColor: 'white',
+    borderRadius: 20 / 2,
+    overflow: 'hidden',
+    backgroundColor: '#007AFF'
+  }
 });
