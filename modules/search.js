@@ -2,11 +2,6 @@ import React from 'react';
 import { AppRegistry, TextInput } from 'react-native';
 
 export default class SearchBox extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = { text: '' };
-	}
-
 	render() {
 		return (
 		<TextInput

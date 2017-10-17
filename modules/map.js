@@ -3,22 +3,62 @@ import { StyleSheet, Text, View, TextInput } from 'react-native';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 
 export default class Map extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      initialPosition: props.initialPosition,
+      markerPosition: props.markerPosition
+    }
+  }
+
+  watchID: ?number = null;
+
+  componentDidMount() {
+    navigator.geolocation.getCurrentPosition((position) => {
+      var lat = parseFloat(position.coords.latitude)
+      var long = parseFloat(position.coords.longitude)
+
+      var initialRegion = {
+        latitude: lat,
+        longitude: long,
+        latitudeDelta: 0.0922,
+        longitudeDelta: 1.0421,
+      }
+
+      this.setState({initialPosition: initialRegion})
+      this.setState({markerPosition: initialRegion})
+      },
+      (error) => alert(JSON.stringify(error)),
+      {enableHighAccuracy: true, timeout: 10000, maximumAge: 1000})
+
+      this.watchID = navigator.geolocation.watchPossition((position) => {
+        var lat = parseFloat(position.coords.latitude)
+        var long = parseFloat(position.coords.longitude)
+
+        var lastRegion = {
+          latitude: lat,
+          longitude: long,
+          latitudeDelta: 0.0922,
+          longitudeDelta: 0.0421,
+        }
+
+        this.setState({initialPosition: lastRegion})
+        this.setState({markerPosition: lastRegion})
+      })
+    }
+
+    componentWillUnmount() {
+      navigator.geolocation.clearWatch(this.watchID)
+    }
+
 	render() {
 		return (
       <MapView
         PROVIDER={PROVIDER_GOOGLE}
         style={styles.map}
-        initialRegion={{
-          latitude: 37.78825,
-          longitude: -122.4324,
-          latitudeDelta: 0.0922,
-          longitudeDelta: 0.0421,
-        }} >
+        region={ this.state.initialPosition } >
         <MapView.Marker
-          coordinate={{
-            latitude: 37.78825,
-            longitude: -122.4324,
-          }}>
+          coordinate={ this.state.markerPosition } >
           <View style={styles.radius}>
             <View style={styles.marker}></View>
           </View>
