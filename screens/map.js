@@ -44,8 +44,8 @@ export default class mapScreen extends React.Component {
 					longitudeDelta: 0.0421
 				}
 			},
-			(error) => {alert(JSON.stringify(error))},
-    		{enableHighAccuracy: true, timeout: 2000, maximumAge: 1000}
+			(error) => {alert(error.message)},
+    		{enableHighAccuracy: true, timeout: 20000, maximumAge: 5000}
 		);
 	}
 	componentWillUnmount() {
