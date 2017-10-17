@@ -1,3 +1,7 @@
 node_modules
 yarn.lock
+<<<<<<< HEAD
 .expo
+=======
+.expo
+>>>>>>> 3f03ed7e1c1950dae8e167312cab2332f01dfe67

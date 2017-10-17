@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, TextInput } from 'react-native';
-import MapView from 'react-native-maps';
+import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 import SearchBox from './modules/search.js';
 
 export default class App extends React.Component {
@@ -9,6 +9,7 @@ export default class App extends React.Component {
 	<View style={{flex: 1}}>
 		<View style={{flex: 1}}>
 			<MapView
+				PROVIDER={PROVIDER_GOOGLE}
 				style={styles.map}
 				initialRegion={{
 				latitude: 37.78825,
