@@ -5,7 +5,7 @@ import CustomButton from '../components/custom_button.js';
 import NavigationBar from 'react-native-navbar';
 
 export default class mapScreen extends React.Component {
-  constructor(props){
+	constructor(props){
 		super(props);
 		this.state = {
 			initialPosition: {
@@ -34,30 +34,23 @@ export default class mapScreen extends React.Component {
   		title: 'Flanr'
 	};
 
-  componentDidMount() {
-    navigator.geolocation.getCurrentPosition((position) => {
-      var lat = parseFloat(position.coords.latitude)
-      var long = parseFloat(position.coords.longitude)
-
-      var initialRegion = {
-        latitude: lat,
-        longitude: long,
-        latitudeDelta: 0.0922,
-        longitudeDelta: 0.0421,
-      }
-
-      this.setState({initialPosition: initialRegion})
-      this.setState({markerPosition: initialRegion})
-    },
-    (error) => alert(JSON.stringify(error)),
-    {enableHighAccuracy: true, timeout: 2000, maximumAge: 1000})
-
-  }
-
-  componentWillUnmount() {
-    navigator.geolocation.clearWatch(this.watchID)
-  }
-
+	componentDidMount() {
+		navigator.geolocation.getCurrentPosition(
+			(pos) => {
+				var position = {
+					latitude: parseFloat(pos.coords.latitude),
+					longitude: parseFloat(pos.coords.longitude),
+					latitudeDelta: 0.0922,
+					longitudeDelta: 0.0421
+				}
+			},
+			(error) => {alert(JSON.stringify(error))},
+    		{enableHighAccuracy: true, timeout: 2000, maximumAge: 1000}
+		);
+	}
+	componentWillUnmount() {
+		navigator.geolocation.clearWatch(this.watchID)
+	}
 	render() {
 		const { navigate } = this.props.navigation;
 		return (
