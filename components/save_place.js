@@ -1,13 +1,15 @@
 import React from 'react';
 import { TouchableOpacity, Text, StyleSheet, View } from 'react-native';
 
-function switchView() {
-}
-
 export default class SavePlace extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = props;
+	}
 	render() {
+		const { onPress } = this.props;
 		return (
-		<TouchableOpacity onPress={switchView} style={styles.button}>
+		<TouchableOpacity onPress={onPress} style={styles.button}>
 			<View style={styles.textBox}>
 				<Text style={styles.text}>SAVE PLACE</Text>
 			</View>

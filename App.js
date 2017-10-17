@@ -1,40 +1,19 @@
 import React from 'react';
 import { StyleSheet, Text, View, TextInput } from 'react-native';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
-import SearchBox from './modules/search.js';
-import SavePlace from './modules/save_place.js';
+import { StackNavigator } from 'react-navigation';
+import mapScreen from './screens/map.js';
+import searchScreen from './screens/search.js';
+
+const AppView = StackNavigator({
+	Map: { screen: mapScreen },
+	Search: { screen: searchScreen }
+});
 
 export default class App extends React.Component {
 	render() {
-	return (
-	<View style={{flex: 1}}>
-		<View style={{flex: 1}}>
-		<MapView
-			PROVIDER={PROVIDER_GOOGLE}
-			style={styles.map}
-			initialRegion={{
-			latitude: 37.78825,
-			longitude: -122.4324,
-			latitudeDelta: 0.0922,
-			longitudeDelta: 0.0421,
-		}} >
-		<MapView.Marker
-			coordinate={{
-			latitude: 37.78825,
-			longitude: -122.4324,
-		}}>
-			<View style={styles.radius}>
-				<View style={styles.marker}></View>
-			</View>
-		</MapView.Marker>
-		</MapView>
-		</View>
-		<View style={{flex: 0.13}}>
-			<SavePlace/>
-		</View>
-	</View>
-    );
-  }
+	return (<AppView />);
+	}
 }
 
 const styles = StyleSheet.create({

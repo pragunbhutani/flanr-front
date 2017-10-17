@@ -11,7 +11,7 @@ export default class SearchBox extends React.Component {
 		return (
 		<TextInput
 			placeholder="Search Nearby Places.."
-			style={{height: 40, borderColor: 'gray', borderWidth: 1}}
+			style={{height: 60, margin: 10}}
 			onChangeText={(text) => this.setState({text})}
 			value={this.state.text}
 		/>
