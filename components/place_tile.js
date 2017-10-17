@@ -5,9 +5,10 @@ const styles = StyleSheet.create({
 	container: {
 		height: 90,
 		backgroundColor: '#fff',
+		marginVertical: 1,
 		alignSelf: 'stretch',
 		borderWidth: 1,
-		borderColor: 'black',
+		borderColor: '#888',
 		flexDirection: 'row'
 	},
 	tileImage: {
